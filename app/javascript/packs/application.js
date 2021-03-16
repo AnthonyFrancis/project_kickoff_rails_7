@@ -11,6 +11,7 @@ import "channels"
 
 // Stylesheets & packs
 import "stylesheets/application";
+import "components/1351.js"; // FontAwesome Pro
 
 Rails.start()
 Turbolinks.start()
