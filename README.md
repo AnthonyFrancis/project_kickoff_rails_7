@@ -21,5 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
+# Comes Complete With
+
+* TailwindCSS
+
 * ...
 # project_kickoff
