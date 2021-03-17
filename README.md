@@ -21,9 +21,15 @@ Things you may want to cover:
 
 * Deployment instructions
 
-# Comes Complete With
+Setup Application
+
+* bundle exec rake webpacker:install
+* Overwrite N
+
+Comes Complete With
 
 * TailwindCSS
+* Font Awesome Pro
 
 * ...
 # project_kickoff
