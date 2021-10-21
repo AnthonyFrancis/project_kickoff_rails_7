@@ -1,0 +1,150 @@
+<style type="text/css">
+  .badge {
+  margin-top: -11px;
+  margin-right: -12px;
+}
+</style>
+
+<section class="bg-white">
+  <div class="container xl:px-24 m-auto">
+
+      <nav class="flex items-center pl-5 pr-1 py-3">
+        <a href="/" class="pr-2 lg:pr-8 focus:outline-none">
+          <div class="inline-flex items-center">
+            <!-- <div class="w-2 h-2 p-2 mr-2 rounded-full bg-gradient-to-tr from-blue-500 to-blue-600">
+            </div> -->
+            <i class="fas fa-capsules text-blue-600"></i>
+            <h2 class="block p-2 text-xl font-medium tracking-tighter text-black transition duration-500 ease-in-out transform cursor-pointer hover:text-blueGray-500 lg:text-x lg:mr-8"> Rails Kick Off!</h2>
+          </div>
+        </a>
+        <div class="ml-auto lg:hidden">
+          <button class="flex items-center py-2 text-blue-600 navbar-burger hover:text-blue-700 focus:outline-none">
+            <!-- <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Mobile menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg> -->
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <title>Mobile menu</title>
+              <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+     <!--    <ul class="hidden lg:flex">
+          <li><a class="px-4 py-1 mr-1 text-base text-blueGray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none hover:text-black" href="/listings">Discover</a></li>
+          <li><a class="px-4 py-1 mr-1 text-base text-blueGray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none hover:text-black" href="/pricing">Pricing</a></li>
+          <li><a class="px-4 py-1 mr-1 text-base text-blueGray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none hover:text-black" href="/features">Features</a></li>
+          <li><a class="px-4 py-1 mr-1 text-base text-blueGray-500 transition duration-500 ease-in-out transform rounded-md focus:shadow-outline focus:outline-none hover:text-black" href="/blog">Blog</a></li>
+        </ul> -->
+
+        <% if user_signed_in? %>
+          
+
+          <%#= link_to "Send a Capsule", new_capsule_path, class: "hidden border border-gray-700 bg-white md:block block p-2 px-3 text-black text-sm transition duration-500 ease-in-out transform rounded-full focus:outline-none lg:ml-auto mr-6" %>
+
+          <div x-data="{ dropdownOpen: false }" class="relative">
+              <button @click="dropdownOpen = ! dropdownOpen"
+                  class="w-8 h-8 rounded-full bg-gray-400 flex hidden md:block focus:outline-none">      
+                    <img class="w-8 h-8 rounded-full" src="<%#= current_user.profile_image %>" alt="">
+              </button>
+
+              <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 z-10 w-full h-full"
+                  style="display: none;"></div>
+
+              <div x-show="dropdownOpen"
+                  class="absolute right-0 z-10 w-48 mt-2 overflow-hidden bg-white rounded-md shadow-xl"
+                  style="display: none;">
+                  <%= link_to "My Account", edit_user_registration_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:bg-opacity-25"  %>
+                  <%#= link_to "Purchases and reviews", your_purchases_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:bg-opacity-25"  %>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-700 hover:bg-opacity-25" %>
+              </div>
+          </div>
+
+       <!--    <button class="hidden md:block block p-2 text-base text-blueGray-500 transition duration-500 ease-in-out transform rounded-full focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current" id="user-menu" aria-haspopup="true">
+            
+            <i class="fas fa-shopping-cart mx-auto icon icon-tabler icon-tabler-logout"></i>
+          </button> -->
+
+            <div class="mr-2">
+
+            </div>
+          
+
+
+        <% else %>
+          <%= link_to "Sign in", new_user_session_url, class: "hidden md:block block p-2 text-base text-blueGray-500 transition duration-500 ease-in-out transform rounded-full focus:shadow-outline focus:outline-none lg:ml-auto" %>
+
+
+          <div class="relative mr-3">
+            <%= link_to "Get Started", new_user_registration_url, class: "hidden bg-blue-600 hover:bg-blue-700 md:block block p-2 px-3 text-white text-sm transition duration-500 ease-in-out transform rounded-full focus:outline-none lg:ml-auto" %>
+          </div>
+        <% end %>
+      </nav>
+
+      <div class="relative z-50 hidden navbar-menu">
+      <div class="fixed inset-0 opacity-25 navbar-backdrop bg-blueGray-800"></div>
+        <nav class="fixed top-0 bottom-0 left-0 flex flex-col w-5/6 max-w-sm px-6 py-6 overflow-y-auto bg-white"><div class="flex items-center mb-8">
+            <a class="mr-auto text-3xl font-semibold leading-none" href="#">
+              <!-- <img class="h-10" src="/assets/logos/metis/poll.png" alt="" width="auto"> -->
+             <!--  <div class="inline-flex items-center">
+                <div class="w-2 h-2 p-2 mr-2 rounded-full bg-gradient-to-tr from-blue-500 to-blue-600">
+                </div>
+                <h2 class="block p-2 text-xl font-medium tracking-tighter text-black transition duration-500 ease-in-out transform cursor-pointer hover:text-blueGray-500 lg:text-x lg:mr-8"> TemplateKing</h2>
+              </div> -->
+            </a>
+            <button class="navbar-close">
+              <svg class="w-6 h-6 cursor-pointer text-blueGray-400 hover:text-blueGray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+          </div>
+          <div>
+            <ul>
+           <!--    <li class="mb-1">
+                <a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="#">Blog</a>
+              </li> -->
+              <li class="mb-1"><a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="/pricing">Pricing</a></li>
+              <!-- <li class="mb-1"><a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="#">About Us</a></li>
+              <li class="mb-1"><a class="block p-4 text-sm text-blueGray-500 hover:bg-blue-50 hover:text-blue-600" href="#">Features</a></li> -->
+            </ul>
+            <div class="pt-6 mt-4 border-t border-blueGray-100">
+              <%= link_to "Sign Up", new_user_registration_url(subdomain: 'app', only_path: false), class: "block px-4 py-3 mb-3 text-xs font-semibold leading-none text-center text-white bg-blue-700 rounded hover:bg-blue-700" %>
+              <%= link_to "Log In", new_user_session_url(subdomain: 'app', only_path: false), class: "block px-4 py-3 mb-2 text-xs font-semibold leading-none text-center text-blue-700 border border-blue-200 rounded hover:text-blue-700 hover:border-blue-300" %>
+            </div>
+          </div>
+          <div class="mt-auto">
+            <p class="my-4 text-xs text-blueGray-400">
+              <span>Get in Touch</span>
+              <a class="text-blue-600 underline hover:text-blue-600" href="mailto:contact@pollapp.cc">contact@pollapp.cc</a>
+            </p>
+            <!-- <a class="inline-block px-1" href="#"><img src="/assets/icons/facebook-blue.svg" alt=""></a><a class="inline-block px-1" href="#"><img src="/assets/icons/twitter-blue.svg" alt=""></a><a class="inline-block px-1" href="#"><img src="/assets/icons/instagram-blue.svg" alt=""></a> -->
+          </div>
+        </nav>
+    </div>    
+  
+  </div>
+    <div class="hidden navbar-menu relative z-50">
+      <div class="navbar-backdrop fixed inset-0 bg-white"></div>
+      <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-sm py-6 px-6 bg-brown overflow-y-auto">
+        <div class="flex justify-end items-center mb-8">
+          <button class="navbar-close focus:outline-none">
+            <svg class="h-6 w-6 text-blueGray-400 cursor-pointer hover:text-blueGray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <div>
+          <ul>
+            <li class="mb-1"><a class="block p-4 text-gray-500 hover:text-black px-3 py-2 rounded-md text-lg font-medium" href="/">Home</a></li>
+            <li class="mb-1"><a class="block p-4 text-gray-500 hover:text-black px-3 py-2 rounded-md text-lg font-medium" href="/blog">Blog</a></li>
+            <li class="mb-1"><a class="block p-4 text-gray-500 hover:text-black px-3 py-2 rounded-md text-lg font-medium" href="/projects">Projects</a></li>
+            <li class="mb-1"><a class="block p-4 text-gray-500 hover:text-black px-3 py-2 rounded-md text-lg font-medium" href="/products">Products</a></li>
+          </ul>
+        </div>
+        <div class="mt-auto">
+          <p class="my-4 text-xs text-blueGray-400">
+            <span>Get in Touch</span>
+            <a class="text-blue-600 hover:text-blue-600 underline"  href="mailto:anthony@anthonyfrancis.co">anthony@anthonyfrancis.co</a>
+          </p>
+         <!--  <a class="inline-block px-1" href="#"><img src="metis-assets/icons/facebook-blue.svg" alt=""></a><a class="inline-block px-1" href="#"><img src="metis-assets/icons/twitter-blue.svg" alt=""></a><a class="inline-block px-1" href="#"><img src="metis-assets/icons/instagram-blue.svg" alt=""></a> -->
+        </div>
+      </nav>
+    </div>
+</section>

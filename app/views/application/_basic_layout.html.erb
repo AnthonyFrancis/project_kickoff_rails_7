@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+<div class="container xl:px-24 m-auto text-grey-darkest">
+    <div class="flex flex-wrap -mx-3 overflow-hidden sm:-mx-3 md:-mx-3 lg:-mx-3 xl:-mx-2">
+      <div class="hidden lg:block my-3 px-3 w-full overflow-hidden sm:my-3 sm:px-3 sm:w-full md:my-3 md:px-3 md:w-full lg:my-3 lg:px-3 lg:w-1/12 xl:my-2 xl:px-2 xl:w-1/12">
+        <%= yield :sidebar_content %>
+      </div>
+
+      <div class="my-3 px-3 w-full overflow-hidden sm:my-3 sm:px-3 sm:w-full md:my-3 md:px-3 md:w-full lg:my-3 lg:px-3 lg:w-7/12 xl:my-2 xl:px-2 xl:w-7/12">
+        <%= yield :primary_content %>
+      </div>
+
+      <div class="hidden lg:block my-3 px-3 w-full overflow-hidden sm:my-3 sm:px-3 sm:w-full md:my-3 md:px-3 md:w-full lg:my-3 lg:px-3 lg:w-4/12 xl:my-2 xl:px-2 xl:w-4/12">
+        <%= yield :secondary_content %>
+      </div>
+    </div>
+</div>
+
+<style>
+    html, body {
+      margin: 0;
+      background-color: #FAFAFA;
+    }
+</style>
+
+<% else %>
+  <%= render partial: "pages/index" %>
+<% end %>

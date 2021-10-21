@@ -33,6 +33,7 @@ Comes Complete With
 * TailwindCSS
 * Font Awesome Pro
 * Devise
-*
+* Tom Select Autocomplete
+* Dropdown Menu
 * ...
 # project_kickoff
